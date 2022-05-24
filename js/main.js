@@ -51,12 +51,13 @@ function getMovie() {
             <div class="col-md-8">
               <h2>${element.title}</h2>
               <ul class="list-group">
-                <li class="list-group-item"><strong>Genre:</strong> ${element.title}</li>
+                <li class="list-group-item"><strong>Genre:</strong> ${element.plprogram$tags[0].plprogram$title}</li>
                 <li class="list-group-item"><strong>Released:</strong> ${element.tdc$sortDate}</li>
-                <li class="list-group-item"><strong>Rated:</strong> ${element.plprogram$ratings}</li>
-                <li class="list-group-item"><strong>IMDB Rating:</strong> ${element.tdc$imdbId}</li>
-                <li class="list-group-item"><strong>Director:</strong> ${element.plprogram$personName}</li>
-                <li class="list-group-item"><strong>Actors:</strong> ${element.plprogram$personName}</li>
+                <li class="list-group-item"><strong>Rated:</strong> ${element.plprogram$ratings[1].plprogram$rating}</li>
+                <li class="list-group-item"><strong>IMDB Rating:</strong> <span class="imdbRatingPlugin" data-user="ur114115727" data-title=${element.tdc$imdbId} data-style="p2"><a href="https://www.imdb.com/title/tt2316204/?ref_=plg_rt_1"><img src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/images/imdb_38x18.png" alt=" Alien: Covenant      (2017) on IMDb" />
+                </a></span><script>(function(d,s,id){var js,stags=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.src="https://ia.media-imdb.com/images/G/01/imdb/plugins/rating/js/rating.js";stags.parentNode.insertBefore(js,stags);})(document,"script","imdb-rating-api");</script></li>
+                <li class="list-group-item"><strong>Director:</strong> ${element.plprogram$credits[0].plprogram$personName}</li>
+                <li class="list-group-item"><strong>Actors:</strong> ${element.plprogram$credits[1].plprogram$personName +", "+ element.plprogram$credits[2].plprogram$personName  +", "+ element.plprogram$credits[3].plprogram$personName}</li>
               </ul>
             </div>
           </div>
@@ -80,3 +81,4 @@ function getMovie() {
       console.log(err);
     });
 }
+
